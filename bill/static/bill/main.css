@@ -1,0 +1,71 @@
+table, th{
+    border: 1px solid black;
+}
+ul{
+	list-style-type: none;
+}
+#cat1, #cat2, #cat3, #cat4, #cat5, #cat6, #cat7, #cat8, #cat9{
+	padding: 20px;
+	cursor: pointer;
+	display: inline-block;
+}
+#listx{
+	display: block;
+	margin-bottom: 100px;
+}
+#prod1, #prod2, #prod3, #prod4, #prod5, #prod6, #prod7, #prod8, #prod9, #prod10, #prod11, #prod12, #prod13, #prod14, #prod15, #prod16, #prod17, #prod18, #prod19, #prod20, #prod21, #prod22, #prod23, #prod24, #prod25, #prod26{
+	display: none;
+}
+#bprod1, #bprod2, #bprod3, #bprod4, #bprod5, #bprod6, #bprod7, #bprod8, #bprod9, #bprod10, #bprod11, #bprod12, #bprod13, #bprod14, #bprod15, #bprod16, #bprod17, #bprod18, #bprod19, #bprod20, #bprod21, #bprod22, #bprod23, #bprod24, #bprod25, #bprod26{
+	padding: 10px;
+	border-bottom: 3px solid black;
+}
+#mcat1{
+	background-color: #3399ff;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+	position: absolute;
+}
+#mcat2, #mcat3, #mcat4, #mcat5, #mcat6, #mcat7, #mcat8, #mcat9{
+	background-color: #3399ff;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+	position: absolute;
+}
+#cat1:hover #mcat1{
+	display: block;
+}
+#cat2:hover #mcat2{
+	display: block;
+}
+#cat3:hover #mcat3{
+	display:block;
+}
+#cat4:hover #mcat4{
+	display:block;
+}
+#cat5:hover #mcat5{
+	display:block;
+}
+#cat6:hover #mcat6{
+	display:block;
+}
+#cat7:hover #mcat7{
+	display:block;
+}
+#cat8:hover #mcat8{
+	display:block;
+}
+#cat9:hover #mcat9{
+	display:block;
+}
+
+
+
+
+
+
+
+

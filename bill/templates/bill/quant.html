@@ -1,0 +1,51 @@
+{%extends 'bill/base.html'%}
+{%block body%}
+<div>
+<table style="width:100%">
+	<tr>
+	    <th>Width in mm</th>
+	    <th>Article No.</th> 
+	    <th>Details</th>
+	    <th>Selling Price in Rs.</th>
+	    <th>Stock</th>
+	    <th>Quantity</th>
+	    <th>Total</th>
+	</tr>
+	{% for sel_prod_obj in sel_prod_objs %}
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj.prod_width }}</td>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj.prod_artno }}</td>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj.prod_desc }}</td>
+		<td><input id="price{{ forloop.counter }}" value="{{ sel_prod_obj.prod_rps }}" readonly="readonly"></td>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj.prod_stock }}</td>
+		<td>&nbsp;&nbsp;&nbsp;<input type="in" name="quant{{ forloop.counter }}" id="quant{{ forloop.counter }}" width="60px" oninput="$('#total{{ forloop.counter }}').val($('#price{{ forloop.counter }}').val()*$('#quant{{ forloop.counter }}').val())" value="0"></td>
+		<th>&nbsp;&nbsp;&nbsp;<input name="total{{ forloop.counter }}" id="total{{ forloop.counter }}" width="60px" value="0" readonly="readonly"></td>
+	</tr>
+	{% endfor %}
+</table>
+<label for="sub_total">Sub Total</label>
+<input name="sub_total" id="sub_total" readonly="readonly">
+<br>
+<label for="gst">GST at 18%</label>
+<input name="gst" id="gst" readonly="readonly">
+{% if t_type==1 %}
+<label for="bcp">GST at 18%</label>
+<input name="bcp" id="bcp" readonly="readonly">
+{% endif %}
+</div>
+<script type="text/javascript">
+window.setInterval(function(){
+	var sum = 0;
+	for(i=1;i<={{ sel_prod_objs.count }};i++)
+	{
+		name = "#total"+i;
+		sum = sum+parseFloat($(name).val());
+	}
+	$("#sub_total").val(sum);
+	var gstx = parseFloat($('#sub_total').val())*parseFloat(0.18);
+	$('#gst').val(gstx);
+	var gstx = parseFloat($('#sub_total').val())*parseFloat(0.18);
+	$('#gst').val(gstx);
+}, 500);
+</script>
+{%endblock%}
