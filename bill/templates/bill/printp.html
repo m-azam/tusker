@@ -1,0 +1,42 @@
+{%extends 'bill/base.html'%}
+{%block body%}
+{% load mathfilters %}
+<div>
+<table style="width:100%" border="boder">
+	<tr>
+	    <th>Width in mm</th>
+	    <th>Article No.</th> 
+	    <th>Details</th>
+	    <th>Selling Price in Rs.</th>
+	    <th>Quantity</th>
+	    <th>Total</th>
+	</tr>
+	{% for sel_prod_obj_px,qua,tot in combo %}
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj_px.prod_width }}</td>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj_px.prod_artno }}</td>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj_px.prod_desc }}</td>
+		<td>&nbsp;&nbsp;&nbsp;{{ sel_prod_obj_px.prod_rps }}</td>
+		<td>&nbsp;&nbsp;&nbsp;{{ qua }}</td>
+		<th>&nbsp;&nbsp;&nbsp;{{ tot }}</td>
+	</tr>
+	{% endfor %}
+{% if not sel_prod_objs_p.has_next %}
+{% endif %}
+<span class="current">
+            Page {{ sel_prod_objs_p.number }} of {{ sel_prod_objs_p.paginator.num_pages }}.
+</span>
+</table>
+<div class="pagination noprint">
+    <span class="step-links">
+        {% if sel_prod_objs_p.has_previous %}
+            <a href="{% url 'bill:printpx' page %}?page={{ sel_prod_objs_p.previous_page_number }}">«previous</a>
+        {% endif %}
+
+        {% if sel_prod_objs_p.has_next %}
+            <a href="{% url 'bill:printpx' page %}?page={{ sel_prod_objs_p.next_page_number }}">next»</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+{%endblock%}

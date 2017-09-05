@@ -11,10 +11,10 @@
 	{% load static %}
 	<script type="text/javascript" src="{% static 'bill/main.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'bill/main.css' %}">
-
-
+	<link rel="stylesheet" type="text/css" href="{% static 'bill/print.css' %}" media="print" />
 </head>
 <body>
+	<img src="{% static 'bill/tusk.png' %}" width="300" height="90">
  	{% block body %}
  	{% endblock %}
  </body>

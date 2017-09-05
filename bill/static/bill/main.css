@@ -1,6 +1,9 @@
 table, th{
     border: 1px solid black;
 }
+.desc{
+	width: 1000px;
+}
 ul{
 	list-style-type: none;
 }
